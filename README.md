@@ -50,3 +50,4 @@ RUN php artisan view:cache
 
 RUN chown -R application:application .
 ```
+OBS: O container fica na porta 80
