@@ -35,9 +35,6 @@ RUN docker-php-ext-install \
 # Copy Composer binary from the Composer official Docker image
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Install PHP MongoDB extension 
-RUN echo "extension=mongodb.so" > $PHP_INI_DIR/conf.d/mongo.ini
-
 ENV WEB_DOCUMENT_ROOT /app/public
 ENV APP_ENV production
 WORKDIR /app
