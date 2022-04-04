@@ -48,6 +48,9 @@ RUN php artisan route:cache
 # Optimizing View loading
 RUN php artisan view:cache
 
+# RUN Migrates
+RUN yes | php artisan migrate
+
 RUN chown -R application:application .
 ```
 OBS: O container fica na porta 80
