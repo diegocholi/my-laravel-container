@@ -56,6 +56,14 @@ RUN yes | php artisan migrate
 
 RUN chown -R application:application .
 ```
+### Para executar comandos
+Basta copiar o arquivo da seguinte forma:
+```
+COPY run-api.sh /opt/docker/provision/entrypoint.d/1-run-api.sh
+```
+Todos os arquivos `/opt/docker/provision/entrypoint.d` são executados automaticamente pelo ponto de entrada padrão.
+
+
 DOC: https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-nginx.html
 
 OBS: O container fica na porta 80
