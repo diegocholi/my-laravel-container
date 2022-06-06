@@ -40,8 +40,9 @@ ENV APP_ENV production
 WORKDIR /app
 COPY . .
 
-
+# Memory configuration php.ini
 RUN echo memory_limit = 128 M >> /opt/docker/etc/php/php.ini
+
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 # Optimizing Configuration loading
 RUN php artisan config:cache
