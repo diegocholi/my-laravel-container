@@ -54,4 +54,5 @@ RUN yes | php artisan migrate
 RUN chown -R application:application .
 ```
 DOC: https://dockerfile.readthedocs.io/en/latest/content/DockerImages/dockerfiles/php-nginx.html
+
 OBS: O container fica na porta 80
