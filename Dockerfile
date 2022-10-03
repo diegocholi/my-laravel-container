@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     pkg-config
 
+RUN echo memory_limit = -1 >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini;
+
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
