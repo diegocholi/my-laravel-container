@@ -44,7 +44,7 @@ RUN pecl install xdebug \
 
 # Set working directory
 WORKDIR /var/www
-
+COPY . .
 USER $user
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev
