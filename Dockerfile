@@ -7,7 +7,6 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 # Set working directory
 WORKDIR /var/www
-USER $user
 COPY . .
 
 # Install system dependencies
@@ -65,5 +64,6 @@ RUN php artisan route:cache
 # Optimizing View loading
 RUN php artisan view:cache
 
+USER $user
 # para executar algum comando no PHP ao invés do laravel:
 # CMD ["php", "/var/www/artisan", "queue:work"]
