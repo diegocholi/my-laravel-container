@@ -24,8 +24,10 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    sudo \
     unzip \
+    zlib1g-dev \
+    libzip-dev \
+    sudo \
     npm \
     nodejs
 
