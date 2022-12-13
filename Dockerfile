@@ -4,7 +4,8 @@ FROM php:7.4-fpm
 ARG user
 ARG uid
 ENV COMPOSER_ALLOW_SUPERUSER=1
-
+WORKDIR /var/www
+USER $user
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -52,9 +53,7 @@ RUN pecl install xdebug \
    && docker-php-ext-enable xdebug
 
 # Set working directory
-WORKDIR /var/www
 COPY . .
-USER $user
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev --ignore-platform-req=ext-zip
 
