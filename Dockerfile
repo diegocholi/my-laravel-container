@@ -56,7 +56,7 @@ WORKDIR /var/www
 COPY . .
 USER $user
 
-RUN composer install --no-interaction --optimize-autoloader --no-dev
+RUN composer install --no-interaction --optimize-autoloader --no-dev --ignore-platform-req=ext-zip
 
 # Optimizing Configuration loading
 RUN php artisan config:cache
