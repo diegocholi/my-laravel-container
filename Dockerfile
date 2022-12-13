@@ -57,7 +57,7 @@ COPY my_xdebug.ini "${PHP_INI_DIR}"/conf.d
 RUN pecl install xdebug \
    && docker-php-ext-enable xdebug
 
-RUN composer install --no-interaction --optimize-autoloader --no-dev --ignore-platform-req=ext-zip
+RUN composer install --no-interaction --optimize-autoloader --no-dev
 
 # Optimizing Configuration loading
 RUN php artisan config:cache
