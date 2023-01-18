@@ -47,15 +47,15 @@ RUN pecl install mongodb \
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Create system user to run Composer and Artisan Commands
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-RUN mkdir -p /home/$user/.composer && \
-    chown -R $user:$user /home/$user
-
 # XDebug configs
 COPY my_xdebug.ini "${PHP_INI_DIR}"/conf.d
 RUN pecl install xdebug \
    && docker-php-ext-enable xdebug
+
+# Create system user to run Composer and Artisan Commands
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+RUN mkdir -p /home/$user/.composer && \
+    chown -R $user:$user /home/$user
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
