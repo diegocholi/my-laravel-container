@@ -57,6 +57,9 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
+# Adjust PHP-FPM settings
+RUN echo "pm.max_children = 10" >> /usr/local/etc/php-fpm.d/www.conf
+
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
 # Optimizing Configuration loading
