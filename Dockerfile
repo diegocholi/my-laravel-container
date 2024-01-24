@@ -57,6 +57,11 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
+# Configurar a quantidade de memória no PHP
+RUN echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/docker-php-memory-limit.ini
+# Ajustar as configurações do PHP-FPM
+RUN echo "php_admin_value[memory_limit] = 512M" >> /usr/local/etc/php-fpm.d/www.conf
+
 # Adjust PHP-FPM settings
 RUN echo "pm.max_children = 10" >> /usr/local/etc/php-fpm.d/www.conf
 
