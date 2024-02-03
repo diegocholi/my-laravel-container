@@ -11,6 +11,8 @@ services:
     container_name: groups-app
     restart: unless-stopped
     working_dir: /var/www/
+    env_file:
+      - .env
     volumes:
       - ./:/var/www
     networks:
