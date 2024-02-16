@@ -45,6 +45,7 @@ services:
       - 80:80
     volumes:
       - ./:/var/www
+      - ./public:/var/public
       - ./docker-compose/nginx:/etc/nginx/conf.d/
     networks:
       - groups
