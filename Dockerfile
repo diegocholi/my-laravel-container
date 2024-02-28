@@ -63,7 +63,10 @@ RUN echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/docker-php-memory-li
 RUN echo "php_admin_value[memory_limit] = 512M" >> /usr/local/etc/php-fpm.d/www.conf
 
 # Adjust PHP-FPM settings
-RUN sed -i 's/pm.max_children = [0-9]*/pm.max_children = 20/' /usr/local/etc/php-fpm.d/www.conf
+RUN sed -i 's/pm.start_servers = [0-9]*/pm.start_servers = 8/' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/pm.max_children = [0-9]*/pm.max_children = 20/' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/pm.min_spare_servers = [0-9]*/pm.min_spare_servers = 4/' /usr/local/etc/php-fpm.d/www.conf && \
+    sed -i 's/pm.max_spare_servers = [0-9]*/pm.max_spare_servers = 12/' /usr/local/etc/php-fpm.d/www.conf
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
