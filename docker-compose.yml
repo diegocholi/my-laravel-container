@@ -20,7 +20,7 @@ services:
 
   db:
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password && bash -c "mysqld --user=root --max_connections=5000"
+    command: mysqld --default-authentication-plugin=mysql_native_password && bash -c "mysqld --user=root --max_connections=5000"
     container_name: groups-db
     restart: unless-stopped
     ports:
