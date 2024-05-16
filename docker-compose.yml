@@ -34,6 +34,7 @@ services:
       SERVICE_NAME: mysql
     volumes:
       - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+      - ./docker-compose/mysql/data:/var/lib/mysql
     networks:
       - groups
 
