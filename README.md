@@ -14,7 +14,7 @@ Primeiro, baixe o instalador do Laravel usando o Composer:
 
 2. docker-compose up -d
 
-3. Nas versões mais recentes do Laravel o arquivo index.php mudou para server.php, então devemos alterar as referências no arquivo docker-compose/nginx/default.conf
+3. Nas versões mais recentes do Laravel o arquivo index.php mudou para server.php, então devemos alterar as referências no arquivo docker-compose/nginx/default.conf. Caso após a alteração o site carregar com algum problema no estilo, então mude a inicialização para /var/www/public e os arquivos de inicialização para index.php.
 
 
 ## PHP + NGINX no mesmo Dockerfile
